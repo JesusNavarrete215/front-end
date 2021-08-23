@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+/* Navbar Styling!! */
+
+.navbar {
+	background-color: black;
+	width: 50%;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 20px;
+}
+
+.navbar .a {
+	text-decoration: none;
+	color: white;
+}
+
+header {
+	position: sticky;
+	background-color: black;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+header h2 {
+	color: white;
+	padding-left: 40px;
+}

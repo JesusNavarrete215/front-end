@@ -1,11 +1,13 @@
 import React from 'react';
+import Navigation from './Navigation';
+import '../App.css';
 
 const Login = () => {
-    return (
-        <div>
-            <h1>Login</h1>
-        </div>
-    )
+	return (
+		<div>
+			<Navigation />
+		</div>
+	)
 }
 
 export default Login;
