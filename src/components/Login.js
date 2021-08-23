@@ -28,13 +28,15 @@ const Login = (props) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label>Username: &nbsp;
+                <div className='container'>
+                <label><strong>Username:</strong> &nbsp;
                     <input type='text' name='username' id='username' onChange={handleChange} value={formValue.username}/>
                 </label>
-                <label>Password: &nbsp;
+                <label className='password'><strong>Password:</strong> &nbsp;
                     <input text='password' name='password' id='password' onChange={handleChange} value={formValue.password}/>
                 </label>
-                <button>Login</button>
+                <button className='button'>Login</button>
+                </div>
             </form>
         </div>
     )

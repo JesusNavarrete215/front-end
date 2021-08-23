@@ -79,3 +79,27 @@ header h2 {
 	justify-content: center;
 	align-items: center;
 }
+/* stlying for login page  */
+.container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 8%;
+  background-color: brown;
+  padding: 20px;
+  width: 40%;
+  margin-left: 30%;
+  border: 2px solid black;
+  border-radius: 5px; 
+}
+.password {
+  margin: 12px 0 12px 0;
+}
+
+.button {
+  width: 15%;
+  margin-left: 45%;
+  margin-top: 5px;
+  padding: 2px;
+  
+}
+/* end styling  */
