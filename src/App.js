@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router';
 import Home from './components/Home';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import OrganizerFrom from "./OrganizerForm";
+import OrganizerFrom from "./components/OrganizerForm";
 import Navigation from './components/Navigation';
 
 function App() {
