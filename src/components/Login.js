@@ -1,4 +1,3 @@
-import React from 'react';
 import '../App.css';
 import React, { useState } from 'react';
 
@@ -21,7 +20,7 @@ const Login = () => {
         e.preventDefault();
         console.log(formValue);
     }
-    
+
     return (
         <div>
             <form onSubmit={handleSubmit}>

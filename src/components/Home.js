@@ -5,7 +5,7 @@ import '../App.css';
 const Home = () => {
 	return (
 		<div>
-			<Navigation />
+			<h1>Home</h1>
 		</div>
 	)
 }

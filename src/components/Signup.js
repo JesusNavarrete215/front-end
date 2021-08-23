@@ -5,7 +5,7 @@ import '../App.css';
 const Signup = () => {
 	return (
 		<div>
-			<Navigation />
+			<h1>Signup</h1>
 		</div>
 	)
 }
