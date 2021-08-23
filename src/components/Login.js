@@ -1,13 +1,16 @@
 import '../App.css';
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { login } from './../actions'
 
 const initialState = {
     username: '',
     password: ''
 }
 
-const Login = () => {
+const Login = (props) => {
     const [ formValue, setFormValue ] = useState(initialState);
+    const { authorization } = props;
 
     const handleChange = (e) => {
         setFormValue({
@@ -19,6 +22,7 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formValue);
+        console.log(authorization);
     }
 
     return (
@@ -36,4 +40,10 @@ const Login = () => {
     )
 }
 
-export default Login;
+const mapStateToProps = state => {
+    return ({
+        authorization: state.authorization
+    })
+}
+
+export default connect(mapStateToProps, { login })(Login);

@@ -2,7 +2,7 @@ import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from './../actions';
 
 export const initialState = {
     isLoading: false,
-    error: "",
+    error: '',
     authorization: false,
 }
 
@@ -10,9 +10,7 @@ const reducer = (state = initialState, action) => {
     switch(action.type){
         case(LOGIN_START):
             return({
-                ...state,
-                isLoading: true,
-                error: ""
+                ...state
             })
         case(LOGIN_SUCCESS):
             return({

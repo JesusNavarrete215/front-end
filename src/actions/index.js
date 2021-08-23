@@ -7,7 +7,7 @@ export const LOGOUT = 'LOGOUT';
 
 export const login = (credentials) => {
     return (dispatch) => {
-        dispatch(loginStart(credentials));
+        dispatch(loginStart());
         axios.post('http://backend-link.com', credentials)
             .then(res => {
                 console.log(res);
@@ -18,8 +18,8 @@ export const login = (credentials) => {
     }
 }
 
-export const loginStart = (credentials) => {
-    return({type:LOGIN_START, payload:credentials});
+export const loginStart = () => {
+    return({type:LOGIN_START});
 }
 
 export const loginSuccess = () => {
