@@ -1,14 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../App.css';
 
 const Navigation = () => {
-    return (
-        <div>
-            <Link to='/'>Home</Link>
-            <Link to='/login'>Login</Link>
-            <Link to='/signup'>Signup</Link>
-        </div>
-    )
+	return (
+		<div>
+			<header>
+				<h2>Putlocker Hub</h2>
+				<nav className="navbar">
+					<Link className="a" to='/'>Home</Link>
+					<Link className="a" to='/login'>Login</Link>
+					<Link className="a" to='/signup'>Signup</Link>
+				</nav>
+			</header>
+		</div >
+	)
 }
 
 export default Navigation;
