@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router';
 import Home from './components/Home';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import OrganizerFrom from "./components/OrganizerForm";
+import OrganizerForm from "./components/OrganizerForm";
 import Navigation from './components/Navigation';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Navigation/>
       <Switch>
-        <Route path='/feed' component={OrganizerFrom}/>
+        <Route path='/feed' component={OrganizerForm}/>
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={Signup}/>
         <Route path='/' component={Home}/>
