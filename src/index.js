@@ -11,14 +11,19 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import reducer from './reducer';
 
+import { ThemeProvider } from 'styled-components';
+import { theme } from './theme';
+
 const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
-        <App />
-      </Router>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <App />
+        </Router>
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

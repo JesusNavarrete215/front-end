@@ -6,11 +6,11 @@ const Navigation = () => {
 	return (
 		<div>
 			<header>
-				<h2>Putlocker Hub</h2>
+				<h2><Link to='/'>Putlocker Hub</Link></h2>
 				<nav className="navbar">
 					<Link className="a" to='/'>Home</Link>
 					<Link className="a" to='/login'>Login</Link>
-					<Link className="a" to='/signup'>Signup</Link>
+					<Link className="a" to='/signup'>Sign up</Link>
 					<Link className="a" to='/feed'>Feed</Link>
 				</nav>
 			</header>
