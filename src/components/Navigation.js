@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 
 const Navigation = () => {
+
+	const handleLogout = () => {
+		localStorage.removeItem('token');
+	}
+
 	return (
 		<div>
 			<header>
@@ -11,6 +16,7 @@ const Navigation = () => {
 					<Link className="a" to='/'>Home</Link>
 					<Link className="a" to='/login'>Login</Link>
 					<Link className="a" to='/signup'>Sign up</Link>
+					<Link className='a' to='/' onClick={handleLogout}>Logout</Link>
 					<Link className="a" to='/feed'>Feed</Link>
 				</nav>
 			</header>
