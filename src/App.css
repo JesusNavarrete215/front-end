@@ -68,3 +68,20 @@ header h2 a{
 	justify-content: center;
 	align-items: center;
 }
+
+/* Feed card styling */
+
+.feed-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	margin-top: 50px;
+	width: 50%;
+	border: 1px solid #1DB954;;
+	border-radius: 10px;
+	background-color: white;
+	color: black;
+	line-height: 1.5em;
+}
