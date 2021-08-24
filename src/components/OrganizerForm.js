@@ -22,6 +22,7 @@ export default function OrganizerFrom() {
 
 	function onSubmit(event) {
 		event.preventDefault();
+		setpeople([...people, formValues]);
 		setFormValues(initialFormValues);
 		console.log(formValues);
 	}
