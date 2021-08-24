@@ -28,47 +28,58 @@ export default function OrganizerFrom() {
 	}
 
 	return (
-		<div>
+		<div className='orgContainer'>
 			<form onSubmit={onSubmit}>
-				<label>First Name </label>
-				<input
-					type="text"
-					name="firstName"
-					value={formValues.firstName}
-					onChange={onChange}
-					required="required"
-				/>
-				<label>Last Name </label>
-				<input
-					type="text"
-					required="required"
-					value={formValues.lastName}
-					onChange={onChange}
-					name="lastName"
-				/>
-
-				<label>Date </label>
-				<input
-					type="date"
-					name="date"
-					value={formValues.date}
-					onChange={onChange}
-					required="required"
-				/>
-
-				<label>Location </label>
-				<input
-					type="text"
-					name="location"
-					value={formValues.location}
-					onChange={onChange}
-					required="required"
-				/>
-
-				<label>Theme </label>
-				<input type="text" onChange={onChange} name="theme" />
-
-				<button type="submit"> submit </button>
+				<div className='otherContainer'>
+					<div>
+						<label>First Name </label>
+						<input
+							type="text"
+							name="firstName"
+							value={formValues.firstName}
+							onChange={onChange}
+							required="required"
+						/>
+					</div>
+					<div>
+						<label>Last Name </label>
+						<input
+							type="text"
+							required="required"
+							value={formValues.lastName}
+							onChange={onChange}
+							name="lastName"
+						/>
+					</div>
+					<div>
+						<label>Date </label>
+						<input
+							type="date"
+							name="date"
+							value={formValues.date}
+							onChange={onChange}
+							required="required"
+						/>
+					</div>
+					<div>
+						<label>Location </label>
+						<input
+							type="text"
+							name="location"
+							value={formValues.location}
+							onChange={onChange}
+							required="required"
+						/>
+					</div>
+					<div>
+						<label>Theme </label>
+						<input type="text" onChange={onChange} name="theme" />
+					</div>
+					<div>
+						{' '}
+						<button type="submit">Submit</button>
+					</div>
+				</div>
 			</form>
 			{people.map ((person) => {
 				return (<div>

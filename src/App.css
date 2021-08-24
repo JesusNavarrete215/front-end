@@ -85,3 +85,13 @@ header h2 a{
 	color: black;
 	line-height: 1.5em;
 }
+
+/* Organizer Form styling */
+
+.otherContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 5% 0;
+} 
