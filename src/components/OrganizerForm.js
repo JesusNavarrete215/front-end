@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import FeedCard from './FeedCard'
 
+import dummyData from "../Mock/DummyData";
+
+
 const initialFormValues = {
-	firstName: "Fernando",
-	lastName: "Guy",
+	firstName: "",
+	lastName: "",
 	date: "",
-	location: "Chucky Cheese",
-	theme: "Pizza party",
+	location: "",
+	theme: "",
 };
 
 export default function OrganizerFrom() {
 	const [formValues, setFormValues] = useState(initialFormValues);
+	const [people, setpeople] = useState(dummyData)
 	function onChange(event) {
 		const { name, value } = event.target;
 		setFormValues({ ...formValues, [name]: value });
@@ -65,7 +69,12 @@ export default function OrganizerFrom() {
 
 				<button type="submit"> submit </button>
 			</form>
-			<FeedCard firstName={formValues.firstName} lastName={formValues.lastName} date={formValues.date} location={formValues.location} theme={formValues.theme} />
+			{people.map ((person) => {
+				return (<div>
+					<FeedCard firstName={person.firstName} lastName={person.lastName} date={person.date} location={person.location} theme={person.theme} />
+				</div>)
+			})}
+			
 		</div>
 	);
 }
