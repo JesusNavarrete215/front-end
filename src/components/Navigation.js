@@ -10,7 +10,7 @@ const Navigation = () => {
 				<nav className="navbar">
 					<Link className="a" to='/'>Home</Link>
 					<Link className="a" to='/login'>Login</Link>
-					<Link className="a" to='/signup'>Signup</Link>
+					<Link className="a" to='/signup'>Sign up</Link>
 					<Link className="a" to='/feed'>Feed</Link>
 				</nav>
 			</header>
