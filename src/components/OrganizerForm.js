@@ -74,7 +74,7 @@ export default function OrganizerFrom() {
             </div>
             <div className="input">
               <span>Theme</span>
-              <input type="text" onChange={onChange} name="theme" />
+              <input type="text" onChange={onChange} name="theme" value={formValues.theme} />
             </div>
             <div>
               {" "}
