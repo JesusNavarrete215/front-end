@@ -10,7 +10,8 @@ const reducer = (state = initialState, action) => {
     switch(action.type){
         case(LOGIN_START):
             return({
-                ...state
+                ...state,
+                isLoading: true,
             })
         case(LOGIN_SUCCESS):
             return({

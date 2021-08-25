@@ -81,9 +81,9 @@ export default function OrganizerFrom() {
 					</div>
 				</div>
 			</form>
-			{people.map ((person) => {
+			{people.map ((person, idx) => {
 				return (<div>
-					<FeedCard firstName={person.firstName} lastName={person.lastName} date={person.date} location={person.location} theme={person.theme} />
+					<FeedCard firstName={person.firstName} lastName={person.lastName} date={person.date} location={person.location} theme={person.theme} key={idx} />
 				</div>)
 			})}
 			

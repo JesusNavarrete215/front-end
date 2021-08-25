@@ -13,7 +13,7 @@ const initialState = {
 
 const Login = (props) => {
     const [ formValue, setFormValue ] = useState(initialState);
-    const { authorization } = props;
+    const { authorization, isLoading, error, login } = props;
 
     const handleChange = (e) => {
         setFormValue({
@@ -24,12 +24,13 @@ const Login = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://potluck-planner-07.herokuapp.com/api/auth/login', formValue)
-            .then(res => {
-                console.log(res);
-                localStorage.setItem('token', res.data.token);
-            })
-            .catch(err => alert(err))
+        // axios.post('https://potluck-planner-07.herokuapp.com/api/auth/login', formValue)
+        //     .then(res => {
+        //         console.log(res);
+        //         localStorage.setItem('token', res.data.token);
+        //     })
+        //     .catch(err => alert(err))
+        login(formValue);
     }
 
     return (
@@ -67,7 +68,9 @@ const Login = (props) => {
 
 const mapStateToProps = state => {
     return ({
-        authorization: state.authorization
+        authorization: state.authorization,
+        isLoading: state.isLoading,
+        error: state.error
     })
 }
 

@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Navigation/>
       <Switch>
-        <PrivateRoute path='/feed' component={OrganizerForm}/>
+        <PrivateRoute exact path='/feed' component={OrganizerForm}/>
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={Signup}/>
         <Route path='/' component={Home}/>
