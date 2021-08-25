@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Besley', serif;
 }
 
 /* Navbar Styling!! */
@@ -78,12 +79,21 @@ header h2 a{
 	align-items: center;
 	margin: auto;
 	margin-top: 50px;
-	width: 50%;
+	width: 30%;
 	border: 1px solid #1DB954;;
 	border-radius: 10px;
-	background-color: white;
+	background-color: lightgrey;
 	color: black;
 	line-height: 1.5em;
+}
+
+.card-img {
+	width: 100%;
+	border-radius: 10px;
+}
+
+.name {
+	font-size: 1.2rem;
 }
 
 /* Organizer Form styling */
@@ -95,3 +105,4 @@ header h2 a{
 	align-items: center;
 	margin: 5% 0;
 } 
+
