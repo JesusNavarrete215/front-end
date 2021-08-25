@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { login } from './../actions'
 
 import StyledLogin from '../styledComponents/StyledLogin';
+import axios from 'axios';
 
 const initialState = {
     username: '',
@@ -23,8 +24,12 @@ const Login = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formValue);
-        console.log(authorization);
+        axios.post('https://potluck-planner-07.herokuapp.com/api/auth/login', formValue)
+            .then(res => {
+                console.log(res);
+                localStorage.setItem('token', res.data.token);
+            })
+            .catch(err => alert(err))
     }
 
     return (
