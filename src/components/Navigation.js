@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import '../App.css';
 
 const Navigation = () => {
+	const { push } = useHistory();
 
 	const handleLogout = () => {
 		localStorage.removeItem('token');
+		push('/');
 	}
 
 	return (
