@@ -15,3 +15,4 @@ export default function FeedCard(props) {
 		</div>
 	)
 }
+
