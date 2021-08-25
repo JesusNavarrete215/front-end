@@ -6,13 +6,14 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import OrganizerForm from "./components/OrganizerForm";
 import Navigation from './components/Navigation';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
     <div className="App">
       <Navigation/>
       <Switch>
-        <Route path='/feed' component={OrganizerForm}/>
+        <PrivateRoute exact path='/feed' component={OrganizerForm}/>
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={Signup}/>
         <Route path='/' component={Home}/>
