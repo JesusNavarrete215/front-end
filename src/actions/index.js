@@ -5,6 +5,19 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 
+export const signup = (credentials) => {
+    return (dispatch) => {
+        dispatch(loginStart());
+        axios.post('https://potluck-planner-07.herokuapp.com/api/auth/register', credentials)
+            .then(res => {
+                dispatch(loginSuccess())
+            })
+            .catch(err => {
+                dispatch(loginFail(err))
+            })
+    }
+}
+
 export const login = (credentials) => {
     return (dispatch) => {
         dispatch(loginStart());
