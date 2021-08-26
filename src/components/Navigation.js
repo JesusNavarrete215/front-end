@@ -20,7 +20,7 @@ const Navigation = (props) => {
 					<Link className="a" to='/'>Home</Link>
 					{ !authorization && <Link className="a" to='/login'>Login</Link>}
 					{ !authorization &&<Link className="a" to='/signup'>Sign up</Link>}
-					<Link className='a' to='/' onClick={handleLogout}>Logout</Link>
+					{authorization &&<Link className='a' to='/' onClick={handleLogout}>Logout</Link>}
 					{ authorization && <Link className="a" to='/feed'>Feed</Link>}
 				</nav>
 			</header>

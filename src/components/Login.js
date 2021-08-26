@@ -22,6 +22,7 @@ const Login = (props) => {
       [e.target.name]: e.target.value,
     });
   };
+  console.log(handleChange)
   const { push } = useHistory();
     const handleSubmit = (e) => {
         e.preventDefault();
