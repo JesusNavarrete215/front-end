@@ -10,38 +10,25 @@ export const login = (credentials) => {
         dispatch(loginStart());
         axios.post('https://potluck-planner-07.herokuapp.com/api/auth/login', credentials)
             .then(res => {
-                dispatch(loginSuccess(res));
+                dispatch(loginSuccess(res.data.message));
                 localStorage.setItem('token', res.data.token);
             })
             .catch(err => {
-                dispatch(loginFail(err));
+                dispatch(loginFail(err.response.data.message));
             })
     }
 }
 
-
-
-
-
-
-
 export const loginStart = () => {
-    return({type:LOGIN_START});
+    return({type: LOGIN_START});
 
 }
-
-
-
 
 export const loginSuccess = (success) => {
-    return({type:LOGIN_SUCCESS, payload: success})
+    return({type: LOGIN_SUCCESS, payload: success});
 
 }
 
-
-
-
 export const loginFail = (error) => {
-    return({type:LOGIN_FAIL, payload:error})
-    
+    return({type: LOGIN_FAIL, payload: error});
 }

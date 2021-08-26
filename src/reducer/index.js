@@ -4,28 +4,30 @@ export const initialState = {
     isLoading: false,
     error: '',
     authorization: false,
+    message: ''
 }
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
-        case(LOGIN_START):
+        case LOGIN_START:
             return({
                 ...state,
                 isLoading: true,
             })
-        case(LOGIN_SUCCESS):
+        case LOGIN_SUCCESS:
             return({
                 ...state,
                 isLoading: false,
                 authorization: true,
+                message: action.payload
             })
-        case(LOGIN_FAIL):
+        case LOGIN_FAIL:
             return({
                 ...state,
                 isLoading: false,
                 error: action.payload
             })
-        case(LOGOUT):
+        case LOGOUT:
             return({
                 ...state,
                 authorization: false,

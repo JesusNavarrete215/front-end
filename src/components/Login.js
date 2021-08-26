@@ -5,7 +5,6 @@ import { login } from "./../actions";
 import { useHistory } from 'react-router';
 
 import StyledLogin from '../styledComponents/StyledLogin';
-import axios from 'axios';
 
 const initialState = {
   username: "",
@@ -14,7 +13,8 @@ const initialState = {
 
 const Login = (props) => {
     const [ formValue, setFormValue ] = useState(initialState);
-    const { authorization, isLoading, error, login } = props;
+    const { setAuth, login } = props;
+    const { push } = useHistory();
 
   const handleChange = (e) => {
     setFormValue({
@@ -22,13 +22,13 @@ const Login = (props) => {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(handleChange)
-  const { push } = useHistory();
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        push("/feed")
-        login(formValue);
-    }
+  
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      login(formValue);
+      push("/feed")
+      setAuth(true);
+  }
 
   return (
     <StyledLogin>

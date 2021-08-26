@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 import StyledSignup from '../styledComponents/StyledSignup';
 
@@ -13,6 +14,7 @@ const initialState = {
 
 const Signup = (props) => {
     const [ formValue, setFormValue ] = useState(initialState);
+    const { push } = useHistory();
 
     const handleChange = (e) => {
         setFormValue({
@@ -25,7 +27,7 @@ const Signup = (props) => {
         e.preventDefault();
         axios.post('https://potluck-planner-07.herokuapp.com/api/auth/register', formValue)
             .then(res => {
-                console.log(res);
+                push('/login');
             })
             .catch(err => alert(err))
     }
