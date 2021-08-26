@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
 import '../App.css';
 
 const Navigation = (props) => {
-	const { push } = useHistory();
+
 	const { authorization } = props;
 
 	const handleLogout = () => {
 		localStorage.removeItem('token');
-		push('/');
+		window.location.href = "/";
 	}
 
 	return (
@@ -20,7 +19,7 @@ const Navigation = (props) => {
 				<nav className="navbar">
 					<Link className="a" to='/'>Home</Link>
 					{ !authorization && <Link className="a" to='/login'>Login</Link>}
-					<Link className="a" to='/signup'>Sign up</Link>
+					{ !authorization &&<Link className="a" to='/signup'>Sign up</Link>}
 					<Link className='a' to='/' onClick={handleLogout}>Logout</Link>
 					{ authorization && <Link className="a" to='/feed'>Feed</Link>}
 				</nav>
