@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "./../actions";
+import { useHistory } from 'react-router';
 
 import StyledLogin from '../styledComponents/StyledLogin';
 import axios from 'axios';
@@ -21,9 +22,10 @@ const Login = (props) => {
       [e.target.name]: e.target.value,
     });
   };
-
+  const { push } = useHistory();
     const handleSubmit = (e) => {
         e.preventDefault();
+        push("/feed")
         login(formValue);
     }
 
