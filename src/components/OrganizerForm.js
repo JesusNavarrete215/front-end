@@ -3,16 +3,8 @@ import FeedCard from "./FeedCard";
 import StyledOrganizer from "../styledComponents/StyledOrganizer";
 import axiosWithAuth from './../utils/axiosWithAuth';
 
-// const initialFormValues = {
-//   firstName: "",
-//   lastName: "",
-//   date: "",
-//   location: "",
-//   theme: "",
-// };
-
 const initialFormValues = {
-  organizer_id: "",
+  organizer_id: Number(localStorage.getItem('user_id')),
   title: "",
   location: "",
   date: "",
@@ -24,6 +16,8 @@ const initialFormValues = {
 export default function OrganizerFrom() {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [people, setPeople] = useState([]);
+
+  console.log(formValues);
 
   useEffect(() => {
     axiosWithAuth().get('https://potluck-planner-07.herokuapp.com/api/events')
@@ -42,7 +36,7 @@ export default function OrganizerFrom() {
 
   function onSubmit(event) {
     event.preventDefault();
-    axiosWithAuth().put('https://potluck-planner-07.herokuapp.com/api/events/', {...formValues, event_id: Date.now()})
+    axiosWithAuth().post('https://potluck-planner-07.herokuapp.com/api/events/', formValues)
       .then(res => {
         console.log(res.data);
       })
@@ -79,7 +73,7 @@ export default function OrganizerFrom() {
             <div className="input">
               <span>Choose Date</span>
               <input
-                type="date"
+                type="text"
                 name="date"
                 value={formValues.date}
                 onChange={onChange}

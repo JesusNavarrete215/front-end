@@ -12,6 +12,7 @@ export const login = (credentials) => {
             .then(res => {
                 dispatch(loginSuccess(res.data.message));
                 localStorage.setItem('token', res.data.token);
+                localStorage.setItem('user_id', res.data.user_id);
             })
             .catch(err => {
                 dispatch(loginFail(err.response.data.message));
