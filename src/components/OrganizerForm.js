@@ -1,19 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FeedCard from "./FeedCard";
 import StyledOrganizer from "../styledComponents/StyledOrganizer";
-import dummyData from "../Mock/DummyData";
+import axiosWithAuth from './../utils/axiosWithAuth';
+
+// const initialFormValues = {
+//   firstName: "",
+//   lastName: "",
+//   date: "",
+//   location: "",
+//   theme: "",
+// };
 
 const initialFormValues = {
-  firstName: "",
-  lastName: "",
-  date: "",
+  organizer_id: "",
+  title: "",
   location: "",
-  theme: "",
+  date: "",
+  time: "",
+  description: "",
+  //event_id: Date.now() ////move this line to the http request {...formValues, event_id: Date.now()}
 };
 
 export default function OrganizerFrom() {
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [people, setpeople] = useState(dummyData);
+  const [people, setPeople] = useState([]);
+
+  useEffect(() => {
+    axiosWithAuth().get('https://potluck-planner-07.herokuapp.com/api/events')
+      .then(res => {
+        setPeople(res.data);
+      })
+      .catch(err => {
+        alert(err);
+      })
+  }, [])
+
   function onChange(event) {
     const { name, value } = event.target;
     setFormValues({ ...formValues, [name]: value });
@@ -21,9 +42,12 @@ export default function OrganizerFrom() {
 
   function onSubmit(event) {
     event.preventDefault();
-    setpeople([...people, formValues]);
+    axiosWithAuth().put('https://potluck-planner-07.herokuapp.com/api/events/', {...formValues, event_id: Date.now()})
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => alert(err));
     setFormValues(initialFormValues);
-    console.log(formValues);
   }
 
   return (
@@ -33,23 +57,23 @@ export default function OrganizerFrom() {
           <h2>Create Event</h2>
           <form onSubmit={onSubmit}>
             <div className="input-box">
-              <span>First Name </span>
+              <span>Title</span>
               <input
                 type="text"
-                name="firstName"
-                value={formValues.firstName}
+                name="title"
+                value={formValues.title}
                 onChange={onChange}
                 required="required"
               />
             </div>
             <div className="input">
-              <span>Last Name</span>
+              <span>Location</span>
               <input
                 type="text"
                 required="required"
-                value={formValues.lastName}
+                value={formValues.location}
                 onChange={onChange}
-                name="lastName"
+                name="location"
               />
             </div>
             <div className="input">
@@ -63,35 +87,27 @@ export default function OrganizerFrom() {
               />
             </div>
             <div className="input">
-              <span>Location</span>
+              <span>Choose Event Time</span>
               <input
-                type="text"
-                name="location"
-                value={formValues.location}
+                type="time"
+                name="time"
+                value={formValues.time}
                 onChange={onChange}
                 required="required"
               />
             </div>
             <div className="input">
-              <span>Theme</span>
-              <input type="text" onChange={onChange} name="theme" value={formValues.theme} />
+              <span>Description</span>
+              <input type="text" onChange={onChange} name="description" value={formValues.description} />
             </div>
             <div>
-              {" "}
               <button type="submit">Submit</button>
             </div>
           </form>
         </div>
         {people.map((person, idx) => {
           return (
-              <FeedCard
-                firstName={person.firstName}
-                lastName={person.lastName}
-                date={person.date}
-                location={person.location}
-                theme={person.theme}
-                key={idx}
-              />
+              <FeedCard title={person.title} location={person.location} date={person.date} time={person.time} description={person.description} organizer_id={person.organizer_id} key={idx} />
           );
         })}
       </div>

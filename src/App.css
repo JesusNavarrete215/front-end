@@ -8,26 +8,40 @@
 
 /* Navbar Styling!! */
 
+header {
+	height: 5vh;
+	padding: 1.5%;
+	position: sticky;
+	background-color: black;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .navbar {
 	width: 50%;
 	display: flex;
 	justify-content: space-evenly;
-	padding: 20px;
+}
+
+.logo{
+	width: 50%;
+	display: flex;
+	justify-content: row;
+	margin: 0 0 0 5%;
+}
+
+.logo h2{
+	width: 100%;
+	display: flex;
+	justify-content: row;
+	padding: 1%;
 }
 
 .navbar .a {
 	text-decoration: none;
 	color: white;
 	font-weight: 600;
-}
-
-header {
-  height: 5vh;
-	position: sticky;
-	background-color: black;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
 }
 
 header h2 a{
@@ -104,5 +118,25 @@ header h2 a{
 	justify-content: center;
 	align-items: center;
 	margin: 5% 0;
-} 
+}
+
+@media (max-width: 415px){
+	header{
+		padding: 0;
+	}
+
+	.navbar{
+		padding: 0;
+	}
+
+	header h2 a{
+		font-size: 1rem;
+		padding: 0;
+		text-align: center;
+	}
+
+	.navbar a{
+		font-size: 0.8rem;
+	}
+}
 

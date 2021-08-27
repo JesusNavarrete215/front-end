@@ -16,7 +16,9 @@ const Navigation = (props) => {
 	return (
 		<div>
 			<header>
-				<h2><Link to='/'>Putlocker Hub</Link></h2>
+				<div className='logo'>
+					<h2><Link to='/'>Putlocker Hub</Link></h2>
+				</div>
 				<nav className="navbar">
 					<Link className="a" to='/'>Home</Link>
 					{ !auth && <Link className="a" to='/login'>Login</Link>}

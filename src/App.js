@@ -6,6 +6,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import OrganizerForm from "./components/OrganizerForm";
 import Navigation from './components/Navigation';
+import Event from './components/Event';
 import PrivateRoute from './components/PrivateRoute';
 import { useState } from 'react';
 
@@ -19,7 +20,8 @@ function App() {
     <div className="App">
       <Navigation auth={auth} setAuth={setAuth}/>
       <Switch>
-        <PrivateRoute exact path='/feed' component={OrganizerForm}/>
+        <PrivateRoute path='/feed/:id' component={Event}/>
+        <PrivateRoute path='/feed' component={OrganizerForm}/>
         <Route path='/login' render={(props) => {
           return <Login {...props} auth={auth} setAuth={setAuth} />
         }}/>
