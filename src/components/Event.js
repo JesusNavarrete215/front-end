@@ -23,7 +23,7 @@ const Event = () => {
                 setEvent(res.data);
             })
             .catch(err => alert(err));
-    }, [])
+    }, [id])
 
     return (
         <div>
