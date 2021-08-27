@@ -105,12 +105,12 @@ export default function OrganizerFrom() {
             </div>
           </form>
         </div>
-        {people.map((person, idx) => {
-          return (
-              <FeedCard title={person.title} location={person.location} date={person.date} time={person.time} description={person.description} organizer_id={person.organizer_id} key={idx} />
-          );
-        })}
       </div>
+      {people.map((person, idx) => {
+        return (
+            <FeedCard title={person.title} location={person.location} date={person.date} time={person.time} description={person.description} organizer_id={person.organizer_id} key={idx} />
+        );
+      })}
     </StyledOrganizer>
   );
 }

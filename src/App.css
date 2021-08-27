@@ -10,7 +10,6 @@
 
 header {
 	height: 5vh;
-	padding: 1.5%;
 	position: sticky;
 	background-color: black;
 	display: flex;
@@ -35,7 +34,6 @@ header {
 	width: 100%;
 	display: flex;
 	justify-content: row;
-	padding: 1%;
 }
 
 .navbar .a {
