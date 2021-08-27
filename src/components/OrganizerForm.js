@@ -10,14 +10,12 @@ const initialFormValues = {
   date: "",
   time: "",
   description: "",
-  //event_id: Date.now() ////move this line to the http request {...formValues, event_id: Date.now()}
 };
 
 export default function OrganizerFrom() {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [people, setPeople] = useState([]);
-
-  console.log(formValues);
+  const [update, setUpdate] = useState(false); //update gets changed to its opposite on submit and also resets on refresh
 
   useEffect(() => {
     axiosWithAuth().get('https://potluck-planner-07.herokuapp.com/api/events')
@@ -27,7 +25,7 @@ export default function OrganizerFrom() {
       .catch(err => {
         alert(err);
       })
-  }, [])
+  }, [update])
 
   function onChange(event) {
     const { name, value } = event.target;
@@ -38,7 +36,9 @@ export default function OrganizerFrom() {
     event.preventDefault();
     axiosWithAuth().post('https://potluck-planner-07.herokuapp.com/api/events/', formValues)
       .then(res => {
-        console.log(res.data);
+        setUpdate(!update);
+        const message = res.data.message; //give the user feedback that their request went through
+        alert(message);
       })
       .catch(err => alert(err));
     setFormValues(initialFormValues);
@@ -100,11 +100,13 @@ export default function OrganizerFrom() {
           </form>
         </div>
       </div>
-      {people.map((person, idx) => {
-        return (
-            <FeedCard title={person.title} location={person.location} date={person.date} time={person.time} description={person.description} organizer_id={person.organizer_id} key={idx} />
-        );
-      })}
+      <div className='feed-card-container'>
+        {people.map((person, idx) => {
+          return (
+              <FeedCard title={person.title} location={person.location} date={person.date} time={person.time} description={person.description} event_id={person.event_id} key={idx} />
+          );
+        })}
+      </div>
     </StyledOrganizer>
   );
 }

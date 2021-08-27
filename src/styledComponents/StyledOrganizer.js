@@ -69,5 +69,11 @@ const StyledOrganizer = styled.div`
   button {
     margin-top: 10px;
   }
+
+  & .feed-card-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 export default StyledOrganizer;
